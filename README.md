@@ -17,7 +17,7 @@
 # HOW to use TOY API
 
 ### localhost:3000/auth/register (POST) => creates new user.
-
+<br>
 for example-> 
 {
   "email":"abhishek",
@@ -25,7 +25,7 @@ for example->
 }
 
 ### localhost:3000/auth/login (POST) => to login. (when you will succesfully login the token will get generated)
-
+<br>
 for example->
 {
   "email":"abhishek",
@@ -35,6 +35,7 @@ for example->
 #### user should stick the token with the bearer auth to perform CRUD operations.
 
 ### localhost:3000/api/toy (POST) -> Adds the new toy in the toy table
+<br>
 example->
 {
   "name":"toy car",
@@ -44,6 +45,12 @@ example->
 ### localhost:3000/api/toy?name=car (GET) -> finds the toy where name imcludes the car
 
 ### localhost:3000/api/toy/1 (PUT) -> update the items in the toy whose id is 1.
+<br>
+example->
+{
+  "name":"big car",
+  "type":"big vehicle"
+}
 
 ### localhost:3000/api/touy/1 (DELETE) -> delete the toy from the table whose id is 1.
 
