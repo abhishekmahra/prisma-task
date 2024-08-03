@@ -4,7 +4,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 interface CustomRequest extends Request {
-  user?: any; // Replace `any` with a more specific type if available
+  user?: any;
 }
 
 export const addToy = async (req: CustomRequest, res: Response) => {
