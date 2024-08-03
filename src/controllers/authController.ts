@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcryptjs';
 import { generateToken } from '../utils/generateToken';
-import { AuthenticatedRequest } from '../interfaces/AuthenticatedReqest'; // Note the corrected import
+import { AuthenticatedRequest } from '../interfaces/AuthenticatedReqest';
 
 const prisma = new PrismaClient();
 
@@ -34,7 +34,7 @@ export const register = async (req: AuthenticatedRequest, res: Response) => {
 
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
-    console.error('Error registering user:', error); // Logging error
+    console.error('Error registering user:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
@@ -58,7 +58,7 @@ export const login = async (req: AuthenticatedRequest, res: Response) => {
     const token = generateToken(user.id);
     res.json({ token });
   } catch (error) {
-    console.error('Error logging in user:', error); // Log the actual error
+    console.error('Error logging in user:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 };
