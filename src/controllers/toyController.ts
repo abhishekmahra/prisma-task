@@ -1,13 +1,11 @@
 import { Request, Response } from 'express';
 import { PrismaClient } from '@prisma/client';
+import { AuthenticatedRequest } from '../interfaces/AuthenticatedReqest';
 
 const prisma = new PrismaClient();
 
-interface CustomRequest extends Request {
-  user?: any; // Replace `any` with a more specific type if available
-}
 
-export const addToy = async (req: CustomRequest, res: Response) => {
+export const addToy = async (req: AuthenticatedRequest, res: Response) => {
   const { name, type } = req.body;
   const userId = req.user.id;
 
@@ -32,7 +30,7 @@ export const getToyByName = async (req: Request, res: Response) => {
   res.json(toys);
 };
 
-export const updateToy = async (req: CustomRequest, res: Response) => {
+export const updateToy = async (req: AuthenticatedRequest, res: Response) => {
   const { id } = req.params;
   const { name, type } = req.body;
   const userId = req.user.id;
@@ -55,7 +53,7 @@ export const updateToy = async (req: CustomRequest, res: Response) => {
   res.json({ message: 'Toy updated successfully' });
 };
 
-export const deleteToy = async (req: CustomRequest, res: Response) => {
+export const deleteToy = async (req: AuthenticatedRequest, res: Response) => {
   const { id } = req.params;
   const userId = req.user.id;
 

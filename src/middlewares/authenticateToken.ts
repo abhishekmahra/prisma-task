@@ -1,11 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+import { AuthenticatedRequest } from '../interfaces/AuthenticatedReqest';
 
-interface CustomRequest extends Request {
-  user?: any; // Replace `any` with a more specific type if available
-}
-
-export const authenticateToken = (req: CustomRequest, res: Response, next: NextFunction) => {
+export const authenticateToken = (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
 
