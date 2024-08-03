@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
 interface CustomRequest extends Request {
-  user?: any; // Replace `any` with a more specific type if available
+  user?: any;
 }
 
 export const authenticateToken = (req: CustomRequest, res: Response, next: NextFunction) => {
